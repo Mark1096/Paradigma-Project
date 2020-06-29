@@ -1,0 +1,43 @@
+<div *ngIf='uniLoader.visibility' class="spinnerWrapper">
+  <mat-spinner [diameter]='50' *ngIf='uniLoader.visibility' mode='indeterminate'></mat-spinner>
+</div>
+
+
+<mat-toolbar role='heading'>
+  <mat-toolbar>
+    <div>
+      <button mat-button class='back-button' [routerLink]='["/login"]'>
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+    </div>
+    <mat-toolbar class='title'>Signup</mat-toolbar>
+  </mat-toolbar>
+</mat-toolbar>
+  
+<div class="form__container">
+
+  <form class='form'>
+    <mat-form-field>
+      <mat-label position="floating">Name</mat-label>
+      <input matInput type="text" name='name' [(ngModel)]="user.name">  <!-- per usare [(ngModel)] correttamente ogni input deve avere un attributo name con un valore definito-->
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label position="floating">Surname</mat-label>
+      <input matInput type="text" name='surname' [(ngModel)]="user.surname">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label position="floating">Email</mat-label>
+      <input matInput type="email" name='email' [(ngModel)]="user.email">  
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label position="floating">Password</mat-label>
+      <input matInput minlength="5" name='password' type="password" [(ngModel)]="user.password">
+    </mat-form-field>
+
+    <button mat-raised-button color='primary' [disabled]="isDataInvalid()" (click)="signup()">Confirm</button>
+  </form>
+  
+</div>

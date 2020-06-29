@@ -1,0 +1,94 @@
+.fab-bottom {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+}
+
+mat-list-item {
+    margin: 8px 0px;
+    margin-right: -40px;
+}
+
+mat-list-content {
+    margin-top: -6px;
+}
+
+.mat-list-base {
+    padding-top: 0px
+}
+
+body {
+    background-color: lightgray;
+}
+
+.profile-image {
+    width: 64px;
+    height: 64px;
+}
+
+mat-card-header {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.icon-user {
+    vertical-align: middle;
+}
+
+.editOrDeletePost{
+    margin-left: auto;
+}
+
+.spacewrap {
+    white-space: normal;
+}
+
+mat-card-content{
+    padding: 0px 5px;
+}
+
+.rounded-image {
+    border-radius: 8px;
+}
+
+.carousel {
+    flex-direction: row;
+    display: inline-flex;
+    z-index: 2;
+    margin-top: -52px;
+    position: absolute;
+    margin-left: 140px;
+    width: -webkit-fill-available;
+}
+
+.scrollCarousel::-webkit-scrollbar {
+    display: none;
+}
+
+@media only screen and (max-width: 580px) {
+    .carousel {
+        margin-top: -49px;
+    }
+}
+
+.white {
+    color: white;
+}
+
+.storiesList {
+    display: inline-flex;
+}
+
+.story-image {
+    max-width: 64px;
+    margin-top: -24px;
+}
+
+.storycontainer {
+}
+
+.scrollCarousel {
+    display: flex;
+    overflow-x: scroll;
+}

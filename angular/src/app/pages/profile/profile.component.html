@@ -1,0 +1,45 @@
+<app-drawer>
+
+  <div *ngIf='uniLoader.visibility' class="spinnerWrapper">
+    <mat-spinner [diameter]='50' *ngIf='uniLoader.visibility' mode='indeterminate'></mat-spinner>
+  </div>
+
+  <div class="avatar__container">
+    <input type="file" (change)="loadImageFromDevice($event)" id="file-input" accept="image/png, image/jpeg" /> 
+    <img mat-card-avatar class="profile-img" [src]='this.me.image? this.me.image : "./assets/users/me.png"'>
+  </div>
+
+  <mat-card>
+    <mat-card-content class="card-content">
+      <mat-form-field>
+        <mat-label appearance="fill">Name</mat-label>
+        <input matInput name="name" [(ngModel)]="me.name" [readonly]="readOnly">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label appearance="fill">Surname</mat-label>
+        <input matInput name="surname" [(ngModel)]="me.surname" [readonly]="readOnly">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label appearance="fill">Email</mat-label>
+        <input matInput name="email" type="email" [(ngModel)]="me.email" [readonly]="readOnly">
+      </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-footer class="card-footer">
+      <button mat-button class="full-w" fill="solid" color="primary" (click)="editAndSave()">
+        <mat-icon>{{readOnly ? 'create' : 'checkmark'}}</mat-icon> 
+        {{ readOnly ? 'Edit' : 'Save' }} profile
+      </button>
+
+      <button mat-button class="full-w" fill="solid" color="error" (click)="openDialog()">
+        <mat-icon name="close-circle"></mat-icon> 
+        Delete profile
+      </button>
+    </mat-card-footer>
+
+  </mat-card>
+
+  <div class="logout-wrapper">
+      <button mat-button fill='solid' class="logout-button" (click)="logout()">Logout</button>
+  </div>
+</app-drawer>

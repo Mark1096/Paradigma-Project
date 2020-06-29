@@ -1,0 +1,91 @@
+.user-deleted {
+    color: var(--ion-color-light-shade);
+}
+
+.user {
+    color: var(--ion-color-secondary);
+}
+
+.me {
+    font-weight: bold;
+    color: var(--ion-color-danger-tint);
+}
+
+.box-image{
+    width: 100%; 
+    margin: 15px 0;
+}
+
+.container{
+    width: 100%; 
+    margin-top: 15px;
+}
+
+.box-item, .list-post {
+    border-radius: 8px;
+} 
+
+.spacewrap {
+    white-space: break-spaces;
+}
+
+.story-image {
+    width: 35px;
+    height: 35px;
+}
+
+@media (prefers-color-scheme: light) {
+    .box-content {
+        --ion-background-color: lightgray;
+    }
+} 
+
+@media (prefers-color-scheme: dark) {
+    .list-post {
+        margin: 8px 0;
+    }
+} 
+
+.box-item {
+    --ion-background-color: white;
+}
+
+[name=heart] {
+    vertical-align: middle;
+}
+
+.profile-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.item-header {
+    width: 100%; 
+    display: flex; 
+    flex-direction: row; 
+    align-items: flex-start;
+}
+
+.editOrDeletePost {
+    width: 100%; 
+    display: flex; 
+    justify-content: flex-end;
+}
+
+.box-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.stories-list {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+}
+
+.stories-list::-webkit-scrollbar {
+    display: none;
+}

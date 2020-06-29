@@ -1,0 +1,31 @@
+.button-tweet {
+    display: flex;
+    justify-content: center;
+    ion-button {
+        --border-radius: 8px;
+        width: 200px;
+    }
+}
+
+.text-item {
+    font-size: 22px;
+}
+
+.box-image {
+    height: -webkit-fill-available;
+    margin-bottom: 6.5rem;
+}
+
+.fit-parent {
+    max-width: 100%;
+    height: -webkit-fill-available;
+    object-fit: contain;
+}
+
+.mywarning {
+    --highlight-background: var(--ion-color-warning)
+}
+
+.myerror{
+    --highlight-background: var(--ion-color-danger)
+}

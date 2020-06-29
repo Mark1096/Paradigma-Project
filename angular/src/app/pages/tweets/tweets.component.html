@@ -1,0 +1,57 @@
+<div *ngIf='uniLoader.visibility' class="spinnerWrapper">
+    <mat-spinner [diameter]='50' *ngIf='uniLoader.visibility' mode='indeterminate'></mat-spinner>
+</div>
+
+<app-drawer>           
+    <div class="carousel">
+        <button mat-icon-button (click)="createStory()">
+          <mat-icon class="white">add</mat-icon> 
+        </button>
+        <div class="scrollCarousel">
+            <mat-list class="storiesList"> 
+                <div class="storycontainer" *ngFor="let tweet of tweets">
+                    <mat-list-item *ngIf='tweet.isStory'>
+                        <mat-card-header (click)='showStory(tweet)'> 
+                            <img mat-card-avatar class='story-image' [src]='getUser(tweet._author._id).image'>
+                        </mat-card-header>
+                    </mat-list-item>    
+                </div>
+            </mat-list>
+        </div>
+    </div>
+    <div class="box-content">
+        <div class='container'>
+            <mat-list-item style='width: 450px' role='list-item' lines='none'  *ngFor="let tweet of tweets" >
+                <mat-card style='margin: 8px 0px' *ngIf='!tweet.isStory'>  
+                    <mat-card-header>
+                        <img mat-card-avatar (click)='showStory(getUser(tweet._author._id))' class='profile-image' [src]='getUser(tweet._author._id).image'>
+                    
+                        <mat-card-title style='margin: 0 10px;'>
+                            <p class="user" [class.me]="canEdit(tweet)">
+                            {{ getAuthor(tweet) }} 
+                            <mat-icon class='icon-user' *ngIf="canEdit(tweet)" color="danger-tint">sentiment_satisfied_alt</mat-icon> 
+                            </p> 
+                        </mat-card-title>
+                        <mat-card-subtitle>{{ parseDate(tweet.createdAt) }}</mat-card-subtitle> 
+                        <div class='editOrDeletePost'*ngIf='canEdit(tweet)'>
+                            <button mat-button (click)="createOrEditTweet(tweet)">
+                                <mat-icon color="primary">create</mat-icon>
+                            </button>
+                            <button mat-button (click)="deleteTweet(tweet)">
+                                <mat-icon color="error">cancel</mat-icon>  
+                            </button>
+                        </div>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <h2 class='spacewrap'>{{tweet.tweet}}</h2>
+                        <img mat-card-image class='rounded-image' [src]="tweet.image">
+                    </mat-card-content>
+                </mat-card> 
+            </mat-list-item>
+        </div>
+        <button mat-fab class='fab-bottom' (click)="createOrEditTweet()"> 
+            <mat-icon>add_circle</mat-icon>  
+        </button>
+
+    </div>
+</app-drawer>

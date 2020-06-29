@@ -1,0 +1,29 @@
+<mat-toolbar>
+    <mat-toolbar class='title'>Larry</mat-toolbar>  
+</mat-toolbar>
+
+<div *ngIf='uniLoader.visibility' class="spinnerWrapper">
+  <mat-spinner [diameter]='50' *ngIf='uniLoader.visibility' mode='indeterminate'></mat-spinner>
+</div>
+
+
+<div class="form__container">
+  <form class='form'>
+    <mat-form-field>
+      <mat-label position="floating">Email</mat-label>
+      <input matInput type="email" name='email' [(ngModel)]="loginUser.email">  <!-- per usare [(ngModel)] correttamente ogni input deve avere un attributo name con un valore definito-->
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label position="floating">Password</mat-label>
+      <input matInput minlength="5" name='password' type="password" [(ngModel)]="loginUser.password">
+      <mat-error *ngIf="loginUser.password.length < 5">Password too short</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color='primary' [disabled]="isDataInvalid()" (click)="login()">Login</button>
+    <button mat-raised-button color='primary' (click)="goToSignup()">Create account</button>
+
+  </form>
+    
+  
+</div>
